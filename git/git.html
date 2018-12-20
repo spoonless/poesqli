@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Git &mdash; Documentation POEI SQLi 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les tests unitaires automatisés avec JUnit" href="../test/junit.html" />
+    <link rel="prev" title="Sommaire" href="../index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> POEI SQLi
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction à Git</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initialisation-d-un-depot">Initialisation d’un dépôt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#suivi-des-modifications-du-depot">Suivi des modifications du dépôt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validation-des-modifications">Validation des modifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilisation-d-un-depot-distant">Utilisation d’un dépôt distant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exclusion-de-fichiers">Exclusion de fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git-hub">Git Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">Références</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercices">Exercices</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Les tests unitaires</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test/junit.html">Les tests unitaires automatisés avec JUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#junit">JUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#structure-d-une-classe-de-test-junit">Structure d’une classe de test JUnit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#execution-des-tests-junit">Exécution des tests JUnit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#implementation-d-objet-mock-avec-mockito">Implémentation d’objet mock avec Mockito</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">POEI SQLi</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>Git</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../test/junit.html" class="btn btn-neutral float-right" title="Les tests unitaires automatisés avec JUnit" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Sommaire" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="git">
+<h1>Git<a class="headerlink" href="#git" title="Lien permanent vers ce titre">¶</a></h1>
+<p><a class="reference external" href="https://git-scm.com">Git</a> est un gestionnaire de contrôle de source
+(Source Control Management ou SCM). Il permet de partager efficacement
+les fichiers source d’un projet. Pour ce cours, <a class="reference external" href="https://git-scm.com">Git</a> va nous permettre de
+partager et de suivre les modifications du code source de nos
+applications et la configuration de nos machines cibles. Un système de
+contrôle de version tel que <a class="reference external" href="https://git-scm.com">Git</a> est fondamental pour permettre à une
+équipe de travailler collectivement sur une base de code commune. <a class="reference external" href="https://git-scm.com">Git</a>
+est avant tout conçu gérer des fichiers en mode texte.</p>
+<p><a class="reference external" href="https://git-scm.com">Git</a> a été originellement développé par Linus Torvalds pour gérer les
+évolutions du code source du noyau Linux.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference external" href="https://git-scm.com">Git</a> est disponible dans tous les dépôts de logiciels des distributions
+Linux. Pour une distribution basée sur Debian (Ubuntu, Mint…), il
+suffit de taper en ligne de commande&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo apt install git
+</pre></div>
+</div>
+<p>Pour Mac, vous pouvez télécharger l’installeur à l’adresse&nbsp;:
+<a class="reference external" href="https://git-scm.com/download/mac">https://git-scm.com/download/mac</a></p>
+<p>Pour Windows, vous pouvez télécharger l’installeur à l’adresse&nbsp;:
+<a class="reference external" href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Avant votre première utilisation, il est conseillé de configurer <a class="reference external" href="https://git-scm.com">Git</a> en
+indiquant l’identité que vous utiliserez. Pour cela vous devez définir
+votre nom et votre email avec les commandes&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git config --global user.name <span class="s2">&quot;VOTRE_NOM&quot;</span>
+git config --global user.email <span class="s2">&quot;VOTRE_EMAIL&quot;</span>
+</pre></div>
+</div>
+<p>Si vous avez un éditeur de texte préféré, vous pouvez également donner
+son chemin avec la commande</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git config --global core.editor <span class="s2">&quot;CHEMIN DE L&#39;EDITEUR&quot;</span>
+</pre></div>
+</div>
+<p>La commande git config permet de modifier la configuration de votre
+projet ou la configuration globale si l’option <code class="docutils literal notranslate"><span class="pre">--global</span></code> est
+présente. La configuration globale est sauvegardée dans le fichier
+<code class="docutils literal notranslate"><span class="pre">~/.gitconfig</span></code> et pour chaque projet dans le fichier <code class="docutils literal notranslate"><span class="pre">.git/config</span></code>.
+Vous pouvez vérifier le contenu de votre configuration grâce à la
+commande&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git config -l
+</pre></div>
+</div>
+</div>
+<div class="section" id="initialisation-d-un-depot">
+<h2>Initialisation d’un dépôt<a class="headerlink" href="#initialisation-d-un-depot" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Si vous partez d’un répertoire dont vous désirez suivre les changements
+avec <a class="reference external" href="https://git-scm.com">Git</a>, vous initialisez votre dépôt local en vous positionnant dans
+le répertoire souhaité et tapant la commande&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git init
+</pre></div>
+</div>
+<p>Cette commande crée un répertoire caché <code class="docutils literal notranslate"><span class="pre">.git</span></code> qui va contenir
+l’ensemble des informations permettant à <a class="reference external" href="https://git-scm.com">Git</a> de suivre les
+modifications.</p>
+<p>Si vous disposez d’une URL d’un dépôt <a class="reference external" href="https://git-scm.com">Git</a>, vous pouvez le cloner pour
+commencer à modifier son contenu localement grâce à la commande&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone &lt;URL&gt; <span class="o">[</span>&lt;répertoire&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<p>Vous pouvez éventuellement désigner le répertoire à créer qui contiendra
+le résultat du clone sinon <a class="reference external" href="https://git-scm.com">Git</a> le déduit du contenu de l’URL.</p>
+</div>
+<div class="section" id="suivi-des-modifications-du-depot">
+<h2>Suivi des modifications du dépôt<a class="headerlink" href="#suivi-des-modifications-du-depot" title="Lien permanent vers ce titre">¶</a></h2>
+<p>À tout moment, vous pouvez utiliser la commande</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git status
+</pre></div>
+</div>
+<p>Cette commande vous permet de connaître l’état des fichiers qui ont
+évolué par rapport à votre dépôt local.</p>
+<p>Pour <a class="reference external" href="https://git-scm.com">Git</a>, un fichier peut avoir quatre états&nbsp;:</p>
+<dl class="docutils">
+<dt>Untracked (non suivi)&nbsp;:</dt>
+<dd>Le fichier existe sur le disque mais ne fait pas partie du dépôt.</dd>
+<dt>Unmodified (non modifié)&nbsp;:</dt>
+<dd>Le fichier existe sur le disque et dans le dépôt et ce fichier n’a
+pas été modifié localement. La commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> ignore les
+fichiers dans cet état.</dd>
+<dt>Modified (modifié)&nbsp;:</dt>
+<dd>Le fichier existe sur le disque et dans le dépôt et ce fichier a été
+modifié.</dd>
+<dt>Staged&nbsp;:</dt>
+<dd>Ce fichier est dans un état différent par rapport au dépôt. Il peut
+avoir été modifié, ajouté ou supprimé. Et l’utilisateur l’a ajouté à
+la <strong>staging area</strong>. Dans ce cas, les modifications seront
+incorporées au dépôt au prochain commit.</dd>
+</dl>
+<p><a class="reference external" href="https://git-scm.com">Git</a> ne connaît pas directement la notion de répertoire. Il ne suit que
+les fichiers et les liens symboliques. Un répertoire existe pour <a class="reference external" href="https://git-scm.com">Git</a> dès
+qu’il contient un fichier et, à l’opposé, un répertoire n’existe plus
+dès qu’il ne contient plus de fichier ou de sous répertoire contenant
+eux-mêmes des fichiers.</p>
+<p>Les commandes ci-dessous permettent de gérer les états d’un fichier&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git add &lt;fichier/répertoire&gt;
+</pre></div>
+</div>
+<p>Permet d’ajouter le fichier à la <strong>staging area</strong>. S’il s’agit d’un
+nouveau fichier ou s’il a été modifié, le fichier passe à l’état Staged
+sinon cette commande est sans effet.</p>
+<p>Pour ajouter tous les fichiers modifiés à la staging area&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git add .
+</pre></div>
+</div>
+<p>Pour ajouter tous les fichiers modifiés et tous les fichiers créés à la
+staging area&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git add -A .
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git rm &lt;fichier&gt;
+</pre></div>
+</div>
+<p>Permet d’ajouter le fichier à la staging area en demandant sa
+suppression. Le fichier passe à l’état Staged et est supprimé du
+répertoire de travail.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git reset -- &lt;fichier/répertoire&gt;
+</pre></div>
+</div>
+<p>Permet de retirer de la staging area un fichier qui y a été ajouté.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git checkout &lt;fichier/répertoire&gt;
+</pre></div>
+</div>
+<p>Permet d’annuler les modifications locales d’un fichier. Le fichier ne
+doit pas être dans la staging area (utilisez git reset pour l’en
+sortir). Le checkout annule les modifications et les suppressions.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git diff &lt;fichier/répertoire&gt;
+</pre></div>
+</div>
+<p>Permet de visualiser les différences entre les modifications locales et
+le dépôt local.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git diff --staged &lt;fichier/répertoire&gt;
+</pre></div>
+</div>
+<p>Permet de visualiser les différences entre les modifications dans la
+staging area et le dépôt local.</p>
+</div>
+<div class="section" id="validation-des-modifications">
+<h2>Validation des modifications<a class="headerlink" href="#validation-des-modifications" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une fois que vous êtes satisfaits des modifications que vous avez
+apportées à vos fichiers, il vous suffit de les ajouter à la staging
+area et d’utiliser la commande commit&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git commit -m <span class="s2">&quot;un message explicatif&quot;</span>
+</pre></div>
+</div>
+<p>L’option -m permet de passer un message explicatif des modifications. Si
+vous n’ajoutez pas cette option, <a class="reference external" href="https://git-scm.com">Git</a> ouvrira un éditeur de texte pour
+vous permettre de saisir ce message. La commande commit permet d’ajouter
+les modifications de la staging area au dépôt local.</p>
+<p>Pour suivre l’historique des opérations de commit, vous pouvez utiliser
+la commande&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git log
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><a class="reference external" href="https://git-scm.com">Git</a> vous permet de créer des alias, c’est-à-dire de définir vos propres
+commandes personnalisées et de les sauvegarder dans la configuration de
+votre dépôt local ou même de votre configuration globale. Essayez&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git config --global alias.lg <span class="s2">&quot;log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit&quot;</span>
+</pre></div>
+</div>
+<p>Vous aurez ainsi accès à l’alias lg. En tapant&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git lg
+</pre></div>
+</div>
+<p class="last"><a class="reference external" href="https://git-scm.com">Git</a> vous affiche maintenant un historique moins verbeux et plus élégant.</p>
+</div>
+</div></div>
+<div class="section" id="utilisation-d-un-depot-distant">
+<h2>Utilisation d’un dépôt distant<a class="headerlink" href="#utilisation-d-un-depot-distant" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference external" href="https://git-scm.com">Git</a> vous permet de connecter votre dépôt local à un ou plusieurs dépôt
+distants (appelés remote repositories). Il devient possible de
+synchroniser votre dépôt local avec eux afin de partager vos
+modifications et d’intégrer les modifications effectuées par d’autres.
+<a class="reference external" href="https://git-scm.com">Git</a> est un système décentralisé dans la mesure ou il ne présuppose pas
+l’existence d’un dépôt de référence. Dans la pratique, il existe souvent
+un dépôt distant privilégié que l’on nomme par convention <em>origin</em>.</p>
+<p>Si vous créez un dépôt local par clonage (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">...</span></code>) alors cette
+opération a pour résultat de créer un dépôt local rattaché au dépôt
+d’origine justement nommé <em>origin</em>. Si vous avez initialisé un dépôt
+local (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>) alors vous pouvez le rattacher à un dépôt distant à
+tout moment.</p>
+<p>Pour connaître la liste des dépôts distants associés à votre dépôt
+local, vous utilisez la commande&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git remote -v
+</pre></div>
+</div>
+<p>Pour associer un dépôt distant à votre dépôt local, vous utilisez la
+commande&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git remote add &lt;nom du dépôt&gt; &lt;URL du dépôt&gt;
+</pre></div>
+</div>
+<p>Vous êtes libres de choisir le nom que vous désirez mais par convention,
+on utilise <em>origin</em> pour désigner le dépôt distant qui est à l’origine
+du dépôt local.</p>
+<p>Pour récupérer les modifications du dépôt distant, utilisez la
+commande&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git pull &lt;nom du dépôt&gt; master
+</pre></div>
+</div>
+<p>Pour envoyer les évolutions de votre dépôt local dans le dépôt distant&nbsp;:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git push &lt;nom du dépôt&gt; master
+</pre></div>
+</div>
+<p>Dans les commandes ci-dessus, <em>master</em> désigne le nom de la branche. Un
+branche permet d’isoler les modifications afin d’avoir simultanément
+plusieurs étapes de développement des fichiers. Nous verrons plus en
+détail cette notion plus tard. Retenez pour l’instant que, par
+convention, la branche par défault est la plupart du temps appelé
+<code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
+<p>Les opérations de pull/push peuvent générer des fusions et des conflits
+si les mêmes fichiers sont modifiés par des utilisateurs différents.
+Dans ce cas, <a class="reference external" href="https://git-scm.com">Git</a> arrête l’opération en cours et demande à l’utilisateur
+de résoudre les conflits.</p>
+</div>
+<div class="section" id="exclusion-de-fichiers">
+<h2>Exclusion de fichiers<a class="headerlink" href="#exclusion-de-fichiers" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La plupart du temps, il n’est pas souhaitable d’ajouter des fichiers au
+dépôt <a class="reference external" href="https://git-scm.com">Git</a>. Il s’agit le plus souvent de fichiers résultants de la
+compilation ou de tout procédé de génération. Ils peuvent donc être
+facilement recréés. Un dépôt <a class="reference external" href="https://git-scm.com">Git</a> n’oublie rien&nbsp;! Même si vous supprimez
+un fichier, ce dernier est toujours présent dans des versions
+antérieures et donc il est toujours conservé quelque part dans le dépôt.
+Il est donc fortement conseillé de n’ajouter à un dépôt que les fichiers
+nécessaires. Vous pouvez créer un fichier <strong>``.gitignore``</strong> dans votre
+répertoire de travail. Ce fichier permet de lister tous les
+fichiers/répertoires que <a class="reference external" href="https://git-scm.com">Git</a> doit totalement ignorer.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Exemple de contenu du fichier .gitignore pour un projet Java&nbsp;:</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># fichiers temporaires pour Maven
+target
+
+# fichiers de configuration Eclipse
+.classpath
+.project
+.settings
+
+# fichiers de configuration Itellij IDEA
+.idea
+*.iml
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="git-hub">
+<h2>Git Hub<a class="headerlink" href="#git-hub" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference external" href="https://github.com">Git Hub</a> est un site permettant de créer et
+d’héberger des dépôts <a class="reference external" href="https://git-scm.com">Git</a> distants. Son utilisation est gratuite pour
+les dépôts libres de droit. Si ce n’est pas déjà fait, créez-vous un
+compte afin de pouvoir ultérieurement partager vos projets.</p>
+</div>
+<div class="section" id="references">
+<h2>Références<a class="headerlink" href="#references" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li>Documentation officielle : <a class="reference external" href="https://git-scm.com/doc">https://git-scm.com/doc</a></li>
+<li>Pro Git : <a class="reference external" href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></li>
+<li>Le tutoriel de Git Hub :
+<a class="reference external" href="https://guides.github.com/activities/hello-world/">https://guides.github.com/activities/hello-world/</a></li>
+<li>Learn Git Branches (tutoriel visuel pour comprendre les branches) : <a class="reference external" href="https://learngitbranching.js.org/">https://learngitbranching.js.org/</a></li>
+</ul>
+</div>
+<div class="section" id="exercices">
+<h2>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="hint admonition">
+<p class="first admonition-title">projet Git local</p>
+<dl class="docutils">
+<dt>Objectif</dt>
+<dd>Comprendre et maîtriser les commandes <a class="reference external" href="https://git-scm.com">Git</a></dd>
+</dl>
+<ul class="last simple">
+<li>Initialisez un dépôt <a class="reference external" href="https://git-scm.com">Git</a> local à partir d’un répertoire contenant un
+projet.</li>
+<li>Ajoutez les fichiers et ajoutez un fichier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> si
+nécessaire.</li>
+<li>Faites un premier commit pour ajouter les fichiers du projet dans le
+dépôt local.</li>
+<li>Essayez de modifier des fichiers du projet et de réaliser des commits</li>
+</ul>
+</div>
+<div class="hint admonition">
+<p class="first admonition-title">projet Git distant</p>
+<dl class="docutils">
+<dt>Objectif</dt>
+<dd>Comprendre et maîtriser les commandes <a class="reference external" href="https://git-scm.com">Git</a></dd>
+</dl>
+<p>Créez un compte sur <a class="reference external" href="https://github.com">Git Hub</a> (si ce n’est pas
+déjà fait). Puis en reprenant votre projet de l’exercice précédent&nbsp;:</p>
+<ul class="last simple">
+<li>Créez un dépôt distant sur <a class="reference external" href="https://github.com">Git Hub</a>.</li>
+<li>Associez votre dépôt local avec le dépôt distant sur
+<a class="reference external" href="https://github.com">Git Hub</a>.</li>
+<li>Envoyez les modifications de votre dépôt local dans le dépôt distant
+(push).</li>
+</ul>
+</div>
+<div class="hint admonition">
+<p class="first admonition-title">partagez votre projet Git</p>
+<dl class="docutils">
+<dt>Objectif</dt>
+<dd>Travailler de manière collaborative avec <a class="reference external" href="https://git-scm.com">Git</a></dd>
+</dl>
+<p>Autorisez un autre étudiant à effectuer des commandes push sur votre
+dépôt distant. Avec <a class="reference external" href="https://github.com">Git Hub</a>, cela se fait avec
+l’option <em>Collaborators</em> dans les <em>Settings</em> du dépôt.</p>
+<p class="last">Puis modifiez le contenu du projet en parallèle et envoyez chacun vos
+modifications dans le dépôt distant.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../test/junit.html" class="btn btn-neutral float-right" title="Les tests unitaires automatisés avec JUnit" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Sommaire" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@epsi.fr - CC-BY-SA
+
+    </p>
+  </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
