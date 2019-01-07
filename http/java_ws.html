@@ -118,6 +118,7 @@
 <li class="toctree-l3"><a class="reference internal" href="http.html#les-methodes-http">Les méthodes HTTP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="http.html#proprietes-des-methodes-http">Propriétés des méthodes HTTP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="http.html#les-en-tetes-http">Les en-têtes HTTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http.html#id1">Exercice</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="http_cas_utilisation.html">HTTP : les cas d’utilisation</a><ul>
@@ -217,7 +218,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#id1">Exercice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#implementer-des-services-web-avec-jax-ws">Implémenter des services Web avec JAX-WS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deployer-un-service-web-dans-un-serveur-d-application-java-ee">Déployer un service Web dans un serveur d’application Java EE</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#excercice">Excercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Exercice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pour-aller-plus-loin">Pour aller plus loin</a></li>
 </ul>
 </li>
@@ -351,8 +352,8 @@ envelope</em>) qui peut contenir un en-tête (<em>SOAP header</em>) et ensuite
 une charge utile (<em>SOAP body</em>).</p>
 <p>Pour une utilisation avec le protocole HTTP, le message doit être envoyé
 avec la méthode POST à l’URL du service (appelée aussi <strong>endpoint</strong>)</p>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Exemple de message SOAP</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Exemple de message SOAP</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;soapenv:Envelope</span>
    <span class="na">xmlns:soapenv=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>
    <span class="na">xmlns:m=</span><span class="s">&quot;http://www.mymeteo.com/meteo&quot;</span><span class="nt">&gt;</span>
@@ -386,8 +387,8 @@ XML</span></a>).</p>
 </div>
 <p>Un message <a class="reference external" href="http://www.w3.org/TR/soap/">SOAP</a> est défini pour le namespace XML
 <a class="reference external" href="http://schemas.xmlsoap.org/soap/envelope/">http://schemas.xmlsoap.org/soap/envelope/</a></p>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Structure d’un message SOAP</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Structure d’un message SOAP</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- l&#39;enveloppe du message --&gt;</span>
 <span class="nt">&lt;soapenv:Envelope</span>
    <span class="na">xmlns:soapenv=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="nt">&gt;</span>
@@ -409,8 +410,8 @@ XML</span></a>).</p>
 <p><a class="reference external" href="http://www.w3.org/TR/soap/">SOAP</a> définit un format pour un type de réponse particulière : une <em>SOAP
 fault</em>. Une <em>SOAP fault</em> signale un problème lors du traitement du
 service.</p>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Une réponse contenant une SOAP fault</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Une réponse contenant une SOAP fault</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="nt">&gt;</span>
    <span class="nt">&lt;soap:Body&gt;</span>
       <span class="nt">&lt;soap:Fault&gt;</span>
@@ -447,15 +448,15 @@ générant dynamiquement si nécessaire).</p>
 <p>Par exemple, pour les serveurs d’application Java EE, le WSDL est
 disponible à la même URL que le service en ajoutant <strong>wsdl</strong> comme
 paramètre.</p>
-<div class="literal-block-wrapper last docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">Exemple d’URL pour accéder au WSDL</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper last docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Exemple d’URL pour accéder au WSDL</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>http://localhost:8080/MeteoService?wsdl
 </pre></div>
 </div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">Exemple de WSDL</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Exemple de WSDL</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&#39;1.0&#39; encoding=&#39;UTF-8&#39;?&gt;</span>
 <span class="nt">&lt;definitions</span>
   <span class="na">xmlns=</span><span class="s">&quot;http://schemas.xmlsoap.org/wsdl/&quot;</span>
@@ -593,14 +594,14 @@ service.</dd>
 livré avec le JDK peut générer toutes les classes Java nécessaires à
 l’implémentation d’un client ou d’un service à partir d’un fichier
 WSDL.</p>
-<div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Générer les classes compilées</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Générer les classes compilées</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wsimport http://localhost:8080/hello-service/webservices/HelloService?wsdl
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper last docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">Générer uniquement les sources</span><a class="headerlink" href="#id8" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper last docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Générer uniquement les sources</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wsimport -Xnocompile http://localhost:8080/hello-service/webservices/HelloService?wsdl
 </pre></div>
 </div>
@@ -615,8 +616,8 @@ Un <em>stub</em> est une classe générée qui masque la complexité des échang
 messages avec le serveur.</p>
 <p>Il est possible de créer un client à partir du code généré par
 <strong>wsimport</strong>.</p>
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">Exemple d’accès à la SEI pour un client</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Exemple d’accès à la SEI pour un client</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// L&#39;URL du WSDL (peut-être un fichier sur disque ou un lien HTTP)</span>
 <span class="n">java</span><span class="o">.</span><span class="na">net</span><span class="o">.</span><span class="na">URL</span> <span class="n">wsdlDocumentLocation</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">net</span><span class="o">.</span><span class="na">URL</span><span class="o">(</span><span class="s">&quot;file:HelloService.wsdl&quot;</span><span class="o">);</span>
 
@@ -640,8 +641,8 @@ messages avec le serveur.</p>
 <p>Le code précédent pose un problème : le client utilise l’URL du service
 spécifiée dans la section <em>wsdl:service</em> du WSDL. Il est souvent utile
 de pouvoir changer dynamiquement l’URL du <em>endpoint</em>.</p>
-<div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">Modification de l’URL du endpoint du service</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Modification de l’URL du endpoint du service</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// ...</span>
 
 <span class="c1">// La SEI offrant les méthodes du service Web sous la forme d&#39;un interface Java</span>
@@ -684,8 +685,8 @@ XML.</p>
 l’implémentation d’une <strong>SEI</strong> (Service Endpoint Implementation). Cette
 interface et son implémentation peuvent être fournies par le développeur
 ou peuvent être générées à partir d’un ficher WSDL (<em>Cf.</em> ci-dessous).</p>
-<div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">Une SEI avec JAX-WS SOAP</span><a class="headerlink" href="#id11" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">Une SEI avec JAX-WS SOAP</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.sqli.poei</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">javax.jws.WebMethod</span><span class="o">;</span>
@@ -707,8 +708,8 @@ ou peuvent être générées à partir d’un ficher WSDL (<em>Cf.</em> ci-desso
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">La classe d’implémentation de la SEI</span><a class="headerlink" href="#id12" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">La classe d’implémentation de la SEI</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.sqli.poei</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">javax.jws.WebService</span><span class="o">;</span>
@@ -752,8 +753,8 @@ Java sans passer par une interface&nbsp;:</p>
 </div>
 </div>
 <p>Cette <strong>SEI</strong> permet de gérer un échange de messages comme celui-ci&nbsp;:</p>
-<div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-text">Message de l’expéditeur</span><a class="headerlink" href="#id13" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Message de l’expéditeur</span><a class="headerlink" href="#id14" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;soapenv:Envelope</span>
   <span class="na">xmlns:soapenv=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>
   <span class="na">xmlns:hel=</span><span class="s">&quot;http://spoonless.github.io/ws/hello&quot;</span><span class="nt">&gt;</span>
@@ -765,8 +766,8 @@ Java sans passer par une interface&nbsp;:</p>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-text">Message du destinataire</span><a class="headerlink" href="#id14" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Message du destinataire</span><a class="headerlink" href="#id15" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;soapenv:Envelope</span> <span class="na">xmlns:soapenv=</span><span class="s">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="nt">&gt;</span>
    <span class="nt">&lt;soapenv:Body&gt;</span>
       <span class="nt">&lt;helloMessage</span> <span class="na">xmlns=</span><span class="s">&quot;http://spoonless.github.io/ws/hello&quot;</span><span class="nt">&gt;</span>Hello world<span class="nt">&lt;/helloMessage&gt;</span>
@@ -872,8 +873,8 @@ de déploiement.</p>
 l’implémentation Metro sous Tomcat, vous pouvez suivre <a class="reference external" href="http://www.mkyong.com/webservices/jax-ws/deploy-jax-ws-web-services-on-tomcat/">ce
 tutoriel</a>.</p>
 </div>
-<div class="section" id="excercice">
-<h2>Excercice<a class="headerlink" href="#excercice" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="id2">
+<h2>Exercice<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="hint admonition">
 <p class="first admonition-title">Écrire un service Web</p>
 <blockquote class="last">
