@@ -1,0 +1,635 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>JDBC dans une application Web &mdash; Documentation POEI SQLi 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les entités JPA" href="jpa_entites.html" />
+    <link rel="prev" title="Accès aux bases de données : JDBC" href="jdbc.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> POEI SQLi
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction à Git</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../git/git.html">Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#initialisation-d-un-depot">Initialisation d’un dépôt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#suivi-des-modifications-du-depot">Suivi des modifications du dépôt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#validation-des-modifications">Validation des modifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#utilisation-d-un-depot-distant">Utilisation d’un dépôt distant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#exclusion-de-fichiers">Exclusion de fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#git-hub">Git Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#references">Références</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#exercices">Exercices</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Les tests unitaires</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test/junit.html">Les tests unitaires automatisés avec JUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#junit">JUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#integration-de-junit-dans-un-projet-maven">Intégration de JUnit dans un projet Maven</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#structure-d-une-classe-de-test-junit">Structure d’une classe de test JUnit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#execution-des-tests-junit">Exécution des tests JUnit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#implementation-d-objet-mock-avec-mockito">Implémentation d’objet mock avec Mockito</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Java EE ORM</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="jdbc.html">Accès aux bases de données : JDBC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#preambule-try-with-resources">Préambule : try-with-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-pilote-de-base-de-donnees">Le pilote de base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#creation-d-une-connexion">Création d’une connexion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#l-url-de-connexion-et-la-classe-des-pilotes">L’URL de connexion et la classe des pilotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#les-requetes-sql-statement">Les requêtes SQL (Statement)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-statement">Le Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-resultset">Le ResultSet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-preparedstatement">Le PreparedStatement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jdbc.html#l-injection-sql">L’injection SQL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#le-callablestatement">Le CallableStatement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jdbc.html#la-transaction">La transaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">JDBC dans une application Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#declaration-d-une-datasource">Déclaration d’une DataSource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#declaration-de-la-datasource-dans-le-fichier-web-xml">Déclaration de la DataSource dans le fichier web.xml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#declaration-d-une-datasource-dans-tomcat">Déclaration d’une DataSource dans Tomcat</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_entites.html">Les entités JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#les-orm-object-relational-mapping">Les ORM (Object-Relational Mapping)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#id1">Les entités JPA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#l-entitymanager">L’EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#obtenir-un-entitymanager">Obtenir un EntityManager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#creer-une-fabrique-d-entitymanager">Créer une fabrique d’EntityManager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_entites.html#manipuler-des-entites-a-partir-d-un-entitymanager">Manipuler des entités à partir d’un EntityManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-persist">La méthode persist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-find">La méthode find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-refresh">La méthode refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-merge">La méthode merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-detach">La méthode detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jpa_entites.html#la-methode-remove">La méthode remove</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_queries.html">Les requêtes JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-natives">Les requêtes Natives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#les-requetes-jpql">Les requêtes JPQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_queries.html#les-requetes-par-programmation">Les requêtes par programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_queries.html#utilisation-de-requetes-nommees">Utilisation de requêtes nommées</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_inheritance.html">L’héritage avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#l-annotation-inheritance">L’annotation &#64;Inheritance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-une-seule-table">Héritage avec une seule table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-jointure-de-tables">Héritage avec jointure de tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#heritage-avec-une-table-par-classe">Héritage avec une table par classe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#l-heritage-et-les-requetes-jpql-polymorphiques">L’héritage et les requêtes JPQL polymorphiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_inheritance.html#un-cas-a-part-fusion-de-la-super-classe">Un cas à part : fusion de la super classe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jpa_relations.html">Les relations avec JPA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-1-one-to-one">La relation 1:1 (one to one)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="jpa_relations.html#la-relation-n-1-many-to-one">La relation n:1 (many to one)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-1-n-one-to-many">La relation 1:n (one to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-relation-n-n-many-to-many">La relation n:n (many to many)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#les-relations-bi-directionnelles">Les relations bi-directionnelles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#la-propagation-en-cascade">La propagation en cascade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#requetes-jpql-et-jointure">Requêtes JPQL et jointure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jpa_relations.html#fetch-lazy-ou-fetch-eager">Fetch lazy ou fetch eager</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Web et service Web</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../http/introduction.html">Introduction : Service Web et API Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../http/api_web.html">HTTP, REST et les API Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../http/http.html">Le protocole HTTP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../http/http.html#structure-des-messages">Structure des messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http.html#les-codes-de-statut">Les codes de statut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http.html#les-methodes-http">Les méthodes HTTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http.html#proprietes-des-methodes-http">Propriétés des méthodes HTTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http.html#les-en-tetes-http">Les en-têtes HTTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http.html#id1">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../http/http_cas_utilisation.html">HTTP : les cas d’utilisation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_cas_utilisation.html#obtenir-la-representation-d-une-ressource">Obtenir la représentation d’une ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_cas_utilisation.html#obtenir-uniquement-les-meta-informations-d-une-ressource">Obtenir uniquement les meta-informations d’une ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_cas_utilisation.html#creer-une-ressource-dont-on-connait-l-uri">Créer une ressource dont on connait l’URI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_cas_utilisation.html#creer-une-ressource-dont-on-ne-connait-pas-l-uri">Créer une ressource dont on ne connait pas l’URI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_cas_utilisation.html#supprimer-l-acces-a-une-ressource">Supprimer l’accès à une ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_cas_utilisation.html#mettre-a-jour-une-ressource">Mettre à jour une ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_cas_utilisation.html#mettre-a-jour-partiellement-une-ressource">Mettre à jour partiellement une ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_cas_utilisation.html#executer-un-processus-de-traitement">Exécuter un processus de traitement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_cas_utilisation.html#connaitre-les-methodes-autorisees">Connaître les méthodes autorisées</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_cas_utilisation.html#traitement-asynchrone-d-une-requete">Traitement asynchrone d’une requête</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_cas_utilisation.html#les-redirections">Les redirections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../http/http_cas_utilisation.html#evolution-du-service">Évolution du service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/http_cas_utilisation.html#uri-volatile-et-canonicalisation-d-uri">URI volatile et canonicalisation d’URI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/http_cas_utilisation.html#separer-le-traitement-de-la-requete-de-son-resultat">Séparer le traitement de la requête de son résultat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_cas_utilisation.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../http/http_negociation_contenu.html">HTTP : la négociation de contenu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_negociation_contenu.html#la-negociation-de-type-de-contenu">La négociation de type de contenu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_negociation_contenu.html#la-negociation-de-jeu-de-caracteres">La négociation de jeu de caractères</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_negociation_contenu.html#la-negociation-de-langue">La négociation de langue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_negociation_contenu.html#l-en-tete-vary">L’en-tête Vary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_negociation_contenu.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../http/http_requetes_conditionnelles.html">HTTP : les requêtes conditionnelles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_requetes_conditionnelles.html#demander-une-representation-a-jour">Demander une représentation à jour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_requetes_conditionnelles.html#creer-une-ressource-si-elle-n-existe-pas-deja">Créer une ressource si elle n’existe pas déjà</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_requetes_conditionnelles.html#alterer-une-ressource-sous-condition">Altérer une ressource sous condition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_requetes_conditionnelles.html#alterer-une-ressource-si-elle-existe">Altérer une ressource si elle existe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_requetes_conditionnelles.html#exercice">Exercice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../http/http_gestion_cache.html">HTTP : la gestion du cache</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_gestion_cache.html#serveur-d-origine-et-intermediaires">Serveur d’origine et intermédiaires</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_gestion_cache.html#principe-generale-de-la-gestion-du-cache">Principe générale de la gestion du cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_gestion_cache.html#la-fraicheur-d-une-reponse">La fraîcheur d’une réponse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_gestion_cache.html#la-revalidation">La revalidation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_gestion_cache.html#les-directives-de-strategie-de-cache">Les directives de stratégie de cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_gestion_cache.html#l-invalidation-de-cache">L’invalidation de cache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_gestion_cache.html#enrichissement-des-en-tetes-par-les-intermediaires">Enrichissement des en-têtes par les intermédiaires</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../http/http_liens.html">HTTP : les liens</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_liens.html#l-en-tete-link">L’en-tête Link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_liens.html#les-types-de-relation">Les types de relation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/http_liens.html#les-attributs-optionnels-d-un-lien">Les attributs optionnels d’un lien</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../http/rest.html">REST</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../http/rest.html#la-ressource">La ressource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/rest.html#uri-informative-ou-uri-opaque">URI informative ou URI opaque ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/rest.html#ressource-contre-rpc">Ressource contre RPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/rest.html#la-representation">La représentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/rest.html#les-contraintes-rest">Les contraintes REST</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../http/rest.html#client-serveur">Client/Serveur</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/rest.html#interface-uniforme">Interface uniforme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/rest.html#sans-etat-stateless">Sans état (stateless)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/rest.html#mise-en-cache-caching">Mise en cache (caching)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/rest.html#layered-system">Layered system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/rest.html#code-on-demand">Code on demand</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../http/rest.html#hypermedia">Hypermédia</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../http/rest.html#les-formats-hypermedias">Les formats hypermédias</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/rest.html#l-en-tete-link">L’en-tête Link</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/rest.html#les-apports-de-l-hypermedia">Les apports de l’hypermédia</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../http/rest.html#rest-ca-veut-dire-quoi">REST&nbsp;: ça veut dire quoi&nbsp;?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/rest.html#les-api-web">Les API Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/rest.html#references">Références</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../http/rest.html#sites-web-articles">Sites Web &amp; articles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/rest.html#livres">Livres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../http/rest.html#applications-de-demo">Applications de démo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../http/rest.html#exercices">Exercices</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../http/web_services.html">Les services Web SOAP / WSDL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../http/java_ws.html">Les services Web avec Java</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../http/java_ws.html#la-quete-de-l-interoperabilite">La quête de l’interopérabilité</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/java_ws.html#soap-structure-des-messages">SOAP&nbsp;: structure des messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/java_ws.html#web-service-description-language-wsdl">Web Service Description Language (WSDL)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/java_ws.html#developper-un-service-web-soap">Développer un service Web SOAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/java_ws.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/java_ws.html#les-outils-java-de-generation">Les outils Java de génération</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/java_ws.html#consommer-un-service-web-avec-jax-ws">Consommer un service Web avec JAX-WS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/java_ws.html#id1">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/java_ws.html#implementer-des-services-web-avec-jax-ws">Implémenter des services Web avec JAX-WS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/java_ws.html#deployer-un-service-web-dans-un-serveur-d-application-java-ee">Déployer un service Web dans un serveur d’application Java EE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/java_ws.html#id2">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/java_ws.html#pour-aller-plus-loin">Pour aller plus loin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../http/annexe_xml.html">Annexe : XML</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../http/annexe_xml.html#structure-du-langage">Structure du langage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/annexe_xml.html#structure-du-document">Structure du document</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/annexe_xml.html#exercice">Exercice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/annexe_xml.html#espaces-de-noms-xml">Espaces de noms XML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/annexe_xml.html#schemas-xml">Schémas XML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../http/annexe_xml.html#pour-aller-plus-loin">Pour aller plus loin…</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">POEI SQLi</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>JDBC dans une application Web</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="jpa_entites.html" class="btn btn-neutral float-right" title="Les entités JPA" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jdbc.html" class="btn btn-neutral" title="Accès aux bases de données : JDBC" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jdbc-dans-une-application-web">
+<h1>JDBC dans une application Web<a class="headerlink" href="#jdbc-dans-une-application-web" title="Lien permanent vers ce titre">¶</a></h1>
+<p>JDBC (Java DataBase Connectivity) est l’API standard pour interagir avec les
+bases données relationnelles en Java. Cette API peut être utilisée dans une
+application Web.</p>
+<div class="section" id="declaration-d-une-datasource">
+<span id="datasource-ref"></span><h2>Déclaration d’une DataSource<a class="headerlink" href="#declaration-d-une-datasource" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans un serveur d’application, l’utilisation du <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/sql/DriverManager.html">DriverManager</a> JDBC est remplacée
+par celle de la <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html">DataSource</a>. L’interface <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html">DataSource</a> n’offre que deux méthodes :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Attempts to establish a connection with the data source</span>
+<span class="n">Connection</span> <span class="nf">getConnection</span><span class="o">()</span>
+
+<span class="c1">// Attempts to establish a connection with the data source</span>
+<span class="n">Connection</span> <span class="nf">getConnection</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">,</span> <span class="n">String</span> <span class="n">password</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Il n’est pas possible de spécifier l’URL de connexion à la base de données
+avec une <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html">DataSource</a>. Par contre une <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html">DataSource</a> peut être injectée dans
+n’importe quel composant Java EE grâce à l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/Resource.html">&#64;Resource</a> :</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Injection d’une DataSource dans une Servlet</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.sql.Connection</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.annotation.Resource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.ServletException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.annotation.WebServlet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+
+<span class="nd">@WebServlet</span><span class="o">(</span><span class="s">&quot;/MyServlet&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyServlet</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
+
+  <span class="nd">@Resource</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;nomDeLaDataSource&quot;</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
+                          <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+
+    <span class="k">try</span> <span class="o">(</span><span class="n">Connection</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">.</span><span class="na">getConnection</span><span class="o">())</span> <span class="o">{</span>
+      <span class="c1">// ...</span>
+    <span class="o">}</span>
+
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/Resource.html">&#64;Resource</a> permet de spécifier le nom de la <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html">DataSource</a> grâce à
+l’attribut <em>name</em>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>L’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/Resource.html">&#64;Resource</a> se base sur <strong>JNDI</strong> (Java Naming and Directory
+Interface) pour rechercher la <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html">DataSource</a> demandée. JNDI est une API standard
+de Java permettant de se connecter à des annuaires (notamment les annuaires
+LDAP). Les serveurs d’application Java EE disposent de leur propre implémentation
+interne d’annuaire permettant de stocker des instances d’objet.</p>
+<p>Les ressources telles que les <em>DataSources</em> sont donc stockées dans un annuaire
+interne et il est possible d’y accéder avec l’API JNDI. Les ressources sont
+classées dans une arborescence (comme le sont les fichiers dans un système
+de fichiers). Une ressource est stockée dans l’arborescence <strong>java:/comp/env</strong>.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Exemple de récupération d’une DataSource en utilisant l’API JNDI</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// javax.naming.InitialContext désigne le contexte racine de l&#39;annuaire.</span>
+<span class="c1">// Un annuaire JDNI est constitué d&#39;instances de javax.naming.Context</span>
+<span class="c1">// (qui sont l&#39;équivalent des répertoires dans un système de fichiers).</span>
+<span class="n">Context</span> <span class="n">envContext</span> <span class="o">=</span> <span class="n">InitialContext</span><span class="o">.</span><span class="na">doLookup</span><span class="o">(</span><span class="s">&quot;java:/comp/env&quot;</span><span class="o">);</span>
+
+<span class="c1">// On récupère la source de données dans le contexte java:/comp/env</span>
+<span class="n">DataSource</span> <span class="n">dataSource</span> <span class="o">=</span> <span class="n">DataSource</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">cast</span><span class="o">(</span><span class="n">envContext</span><span class="o">.</span><span class="na">lookup</span><span class="o">(</span><span class="s">&quot;nomDeLaDataSource&quot;</span><span class="o">));</span>
+</pre></div>
+</div>
+</div>
+<p class="last">Le contexte JNDI <strong>java:/comp/env</strong> est un contexte particulier. Il désigne
+l’ensemble des composants Java EE disponibles dans l’environnement (env) du
+composant Java EE (comp) courant.</p>
+</div>
+</div>
+<div class="section" id="declaration-de-la-datasource-dans-le-fichier-web-xml">
+<span id="configuration-datasource"></span><h2>Déclaration de la DataSource dans le fichier web.xml<a class="headerlink" href="#declaration-de-la-datasource-dans-le-fichier-web-xml" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le fichier de déploiement <code class="file docutils literal notranslate"><span class="pre">web.xml</span></code> doit déclarer la <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html">DataSource</a> comme
+une ressource de l’application. Cela va permettre au serveur d’application
+de permettre à l’application de se connecter à la base de données associée.
+Pour cela, on utilise l’élément <code class="docutils literal notranslate"><span class="pre">&lt;resource-ref&gt;</span></code> dans le fichier <code class="file docutils literal notranslate"><span class="pre">web.xml</span></code> :</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Déclaration de la DataSource dans le fichier web.xml</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;resource-ref&gt;</span>
+  <span class="nt">&lt;res-ref-name&gt;</span>nomDeLaDataSource<span class="nt">&lt;/res-ref-name&gt;</span>
+  <span class="nt">&lt;res-type&gt;</span>javax.sql.DataSource<span class="nt">&lt;/res-type&gt;</span>
+<span class="nt">&lt;/resource-ref&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Mais comment le serveur d’application fait-il pour lier
+une <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html">DataSource</a> avec une connexion vers une base de données ? Malheureusement,
+il n’existe pas de standard et chaque serveur d’application dispose de sa
+procédure. Nous allons voir dans la section suivante comment créer une <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html">DataSource</a>
+spécifiquement pour Tomcat.</p>
+</div>
+<div class="section" id="declaration-d-une-datasource-dans-tomcat">
+<h2>Déclaration d’une DataSource dans Tomcat<a class="headerlink" href="#declaration-d-une-datasource-dans-tomcat" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Tomcat n’est pas à proprement parler un serveur d’application, il s’agit juste
+d’un conteneur de Servlet. Néanmoins, il peut déployer des applications Web Java
+et il supporte l’annotation <a class="reference external" href="https://docs.oracle.com/javaee/7/api/javax/annotation/Resource.html">&#64;Resource</a> ainsi que la configuration d’une
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html">DataSource</a> dans le serveur ou dans l’application.</p>
+<p>Une connexion JDBC est réalisée à travers un pilote. Pour déclarer une <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html">DataSource</a>
+vers une base de données Oracle, par exemple, nous devons installer le pilote
+Oracle dans le serveur. Pour cela, il vous faut
+télécharger le pilote depuis le <a class="reference external" href="https://www.oracle.com/technetwork/database/features/jdbc/index-091264.html">site d’Oracle</a>
+et le placer dans le répertoire <code class="file docutils literal notranslate"><span class="pre">lib</span></code> situé dans le répertoire
+d’installation du serveur.</p>
+<p>Une fois, le pilote ajouté, il est possible
+de déclarer la <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html">DataSource</a> dans le fichier <code class="file docutils literal notranslate"><span class="pre">conf/server.xml</span></code>. Si vous
+utilisez Tomcat dans Eclipse, alors vous devez disposer d’un projet <code class="file docutils literal notranslate"><span class="pre">Servers</span></code>
+qui a été créé automatiquement dans votre espace de travail. Dedans, se trouvent
+toutes les configurations des serveurs que vous avez créés. Pour Tomcat 9, le
+nom par défaut est <code class="file docutils literal notranslate"><span class="pre">Tomcat</span> <span class="pre">v9.0</span> <span class="pre">Server</span> <span class="pre">at</span> <span class="pre">localhost-config</span></code>. Dans ce
+répertoire, se trouve le fichier <code class="file docutils literal notranslate"><span class="pre">server.xml</span></code> qu’il va falloir modifier.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">L’intégration de Tomcat dans Eclipse crée automatiquement une copie de la configuration
+originale du serveur pour chacune des instances de serveur créées dans Eclipse.
+Ainsi, il est possible de déclarer plusieurs serveurs Tomcat dans Eclipse qui
+possèdent chacun leur configuration spécifique.</p>
+</div>
+<p>Dans le fichier <code class="file docutils literal notranslate"><span class="pre">server.xml</span></code>, vous devez ajouter avant la fin de l’élement
+<code class="docutils literal notranslate"><span class="pre">&lt;Host</span> <span class="pre">/&gt;</span></code> (aux environs de la ligne 150 du fichier), les informations
+de déploiement de votre application :</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Exemple de balise de contexte de déploiement dans le fichier server.xml</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Context</span> <span class="na">docBase=</span><span class="s">&quot;nomAppli&quot;</span>
+         <span class="na">path=</span><span class="s">&quot;/nomAppli&quot;</span>
+         <span class="na">reloadable=</span><span class="s">&quot;true&quot;</span>
+         <span class="na">source=</span><span class="s">&quot;org.eclipse.jst.jee.server:jdbc&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Resource</span> <span class="na">name=</span><span class="s">&quot;[nomDataSource]&quot;</span>
+            <span class="na">auth=</span><span class="s">&quot;Container&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;javax.sql.DataSource&quot;</span>
+            <span class="na">maxTotal=</span><span class="s">&quot;100&quot;</span>
+            <span class="na">maxIdle=</span><span class="s">&quot;30&quot;</span>
+            <span class="na">maxWaitMillis=</span><span class="s">&quot;10000&quot;</span>
+            <span class="na">username=</span><span class="s">&quot;[USERNAME]&quot;</span>
+            <span class="na">password=</span><span class="s">&quot;[PASSWORD]&quot;</span>
+            <span class="na">driverClassName=</span><span class="s">&quot;oracle.jdbc.OracleDriver&quot;</span>
+            <span class="na">url=</span><span class="s">&quot;jdbc:oracle:thin:@//[HOST]:1521:[NOM BASE]&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/Context&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Si vous ne voulez pas modifier la configuration du serveur, il est possible
+d’ajouter un fichier <code class="file docutils literal notranslate"><span class="pre">src/main/webapp/META-INF/context.xml</span></code> dans votre
+projet Maven et de déclarer à l’intérieur l’élément <code class="docutils literal notranslate"><span class="pre">&lt;Resource</span> <span class="pre">/&gt;</span></code> :</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Exemple de fichier context.xml dans l’application</span><a class="headerlink" href="#id5" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Context&gt;</span>
+
+  <span class="nt">&lt;Resource</span> <span class="na">name=</span><span class="s">&quot;[nomDataSource]&quot;</span>
+            <span class="na">auth=</span><span class="s">&quot;Container&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;javax.sql.DataSource&quot;</span>
+            <span class="na">maxTotal=</span><span class="s">&quot;100&quot;</span>
+            <span class="na">maxIdle=</span><span class="s">&quot;30&quot;</span>
+            <span class="na">maxWaitMillis=</span><span class="s">&quot;10000&quot;</span>
+            <span class="na">username=</span><span class="s">&quot;[USERNAME]&quot;</span>
+            <span class="na">password=</span><span class="s">&quot;[PASSWORD]&quot;</span>
+            <span class="na">driverClassName=</span><span class="s">&quot;oracle.jdbc.OracleDriver&quot;</span>
+            <span class="na">url=</span><span class="s">&quot;jdbc:oracle:thin:@//[HOST]:1521:[NOM BASE]&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/Context&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Pour une présentation de la déclaration des <em>data sources</em> pour différents
+SGBDR, <a class="reference external" href="https://tomcat.apache.org/tomcat-9.0-doc/jndi-datasource-examples-howto.html">reportez-vous à la documentation de Tomcat</a>.</p>
+</div>
+<p>Dans sa gestion des <em>data sources</em>, Tomcat inclut la gestion d’un <em>pool</em> de
+connexions en s’appuyant sur la bibliothèque Apache DBCP. L’ensemble des
+paramètres de configuration du <em>pool</em> de connexions est disponibles dans la
+<a class="reference external" href="http://commons.apache.org/proper/commons-dbcp/configuration.html">documentation de DBCP</a>.
+Ces paramètres sont utilisables comme attributs de l’élément <code class="docutils literal notranslate"><span class="pre">&lt;Resource</span> <span class="pre">/&gt;</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="jpa_entites.html" class="btn btn-neutral float-right" title="Les entités JPA" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jdbc.html" class="btn btn-neutral" title="Accès aux bases de données : JDBC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@epsi.fr - CC-BY-SA
+
+    </p>
+  </div>
+    <div><a class="reference download" href="https://github.com/spoonless/poesqli/archive/gh-pages.zip"><code class="download docutils literal notranslate"><span class="pre">Télécharger ce cours</pre></code></a></div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
