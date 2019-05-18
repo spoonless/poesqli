@@ -540,7 +540,7 @@
 de manipuler un graphe d’objets en accédant à des propriétés. En Java EE, il existe
 un langage d’expression (nommé simplement <em>EL</em> pour <em>Expression Language</em>) qui
 permet notamment d’accéder à des données dans une page JSP.</p>
-<p>Le Spring Framework introduit sont propre langage d’expression (nommé <em>SpEL</em>
+<p>Le Spring Framework introduit son propre langage d’expression (nommé <em>SpEL</em>
 pour <em>Spring Expression Language</em>). Il est très similaire à l’EL Java EE (tout
 en étant plus expressif). Il permet notamment d’écrire des expressions plutôt
 que des valeurs en dures dans le fichier de contexte d’application. Une expression
@@ -564,8 +564,8 @@ l’URI d’un service.</p>
 </div>
 </div>
 <p>D’un autre côté, une classe <code class="docutils literal notranslate"><span class="pre">Service</span></code> doit être construite
-en lui fournissant l’URI du service connue de la classe <code class="docutils literal notranslate"><span class="pre">Configuration</span></code></p>
-<p>Un première implémentation pourrait être :</p>
+en lui fournissant l’URI du service connu de la classe <code class="docutils literal notranslate"><span class="pre">Configuration</span></code></p>
+<p>Une première implémentation pourrait être :</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Exemple de classe Service</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.sqli.poei</span><span class="o">;</span>
@@ -583,7 +583,7 @@ en lui fournissant l’URI du service connue de la classe <code class="docutils 
 </pre></div>
 </div>
 </div>
-<p>Et enfin, on peut définit le contexte d’application :</p>
+<p>Et enfin, on peut définir le contexte d’application :</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">Le contexte d’application</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -684,7 +684,7 @@ entre 0 et 100.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">L’opérateur spécial <code class="docutils literal notranslate"><span class="pre">T()</span></code> permet d’indiquer dans une expression que l’on
-référence une classe est non pas un <em>bean</em>.</p>
+référence une classe et non pas un <em>bean</em>.</p>
 </div>
 <p>Il est possible de manipuler le contenu de tableaux, de listes ou de dictionnaires
 (<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html">Map</a>) grâce à l’opérateur <code class="docutils literal notranslate"><span class="pre">[]</span></code>. Il existe un objet implicite nommé «&nbsp;systemProperties&nbsp;»
